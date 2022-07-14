@@ -19,7 +19,18 @@ public class Exercise3 {
 
 
     public <T extends Comparable<T>> boolean bstEstrictamenteBinario(BST<T> a){
-
-        return false;
+        for (Node<T> auxNode = a.root; auxNode != null; auxNode = auxNode.left) {
+            if (auxNode.left == null && auxNode.right != null
+             || auxNode.left != null && auxNode.right == null) {
+                return false;
+            }
+        }
+        for (Node<T> auxNode = a.root; auxNode != null; auxNode = auxNode.right) {
+            if (auxNode.left == null && auxNode.right != null
+             || auxNode.left != null && auxNode.right == null) {
+                return false;
+            }
+        }
+        return true;
     }
 }
